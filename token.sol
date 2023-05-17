@@ -961,7 +961,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
 }
 
 contract Pepe is ERC20, Ownable {
-    uint256 public _maxWalletLimit = 20000000 * 10 * decimals();
+    uint256 public _maxWalletLimit = 20000000 * 10 ** decimals();
 
     IUniswapV2Router02 public immutable uniswapV2Router;
     address public immutable uniswapV2Pair;
