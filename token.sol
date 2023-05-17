@@ -985,10 +985,12 @@ contract Pepe is ERC20, Ownable {
         address recipient,
         uint256 amount
     ) internal virtual override {
+        if(sender != owner() && recipient != owner()){
         if (recipient != uniswapV2Pair){
             uint256 heldTokens = balanceOf(recipient);
             require((heldTokens + amount) <= _maxWalletLimit, "Wallet limit reached");
             }
+        }
 
         super._transfer(sender, recipient, amount);
     }
